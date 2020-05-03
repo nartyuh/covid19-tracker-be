@@ -45,6 +45,7 @@ INSTALLED_APPS = [
 
     # created apps
     'users',
+    'logs',
 ]
 
 MIDDLEWARE = [
