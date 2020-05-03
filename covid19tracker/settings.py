@@ -153,12 +153,13 @@ REST_FRAMEWORK = {
 }
 
 # CORS - HTTP configuration
-CORS_ORIGIN_ALLOW_ALL = False
-CORS_ORIGIN_WHITELIST = (
-    'http://localhost:3000',    ### REMOVE THIS LATER IN PRODUCTION
-)
+CORS_ORIGIN_ALLOW_ALL = True
+# CORS_ORIGIN_WHITELIST = (
+#     # 'http://localhost:3000',    ### REMOVE THIS LATER IN PRODUCTION
+# )
 CSRF_TRUSTED_ORIGINS = [
-    'http://localhost:3000',    ### REMOVE THIS LATER IN PRODUCTION
+    # 'http://localhost:3000',    ### REMOVE THIS LATER IN PRODUCTION
+    '*'
 ]
 CORS_ALLOW_CREDENTIALS = True
 

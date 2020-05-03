@@ -52,8 +52,7 @@ class TestPositiveApi(generics.GenericAPIView):
     serializer_class = TestPositiveSerializer
 
     def get(self, request, format=None):
-        user =""
-        # user = request.user
+        user = request.user
         try:
             test_positive = TestPositive.objects.get(user=user)
         except:
