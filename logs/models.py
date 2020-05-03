@@ -14,10 +14,10 @@ class Log(models.Model):
 
 
 class UserLog(models.Model):
-    user = models.ForeignKey(User, null=False, blank=False, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, to_field='username', null=False, blank=False, on_delete=models.CASCADE)
     log = models.ForeignKey(Log, null=False, blank=False, on_delete=models.CASCADE)
 
 
 class TestPositive(models.Model):
-    user = models.ForeignKey(User, null=False, blank=False, on_delete=models.CASCADE)
-    date_tested = models.DateTimeField(null=False, blank=False)
+    user = models.ForeignKey(User, to_field='username', null=False, blank=False, on_delete=models.CASCADE)
+    date_tested = models.DateField(null=False, blank=False)
