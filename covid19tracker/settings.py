@@ -37,6 +37,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # third-party apps
+    'rest_framework',
+    'knox',
+    'corsheaders',
+
+    # created apps
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -47,6 +55,10 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    # Third party middleware
+    'corsheaders.middleware.CorsMiddleware',
+    'corsheaders.middleware.CorsPostCsrfMiddleware',
 ]
 
 ROOT_URLCONF = 'covid19tracker.urls'
@@ -132,12 +144,33 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+# set REST_FRAMEWORK authentication configuration
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'users.auth.TokenAuthentication',
+    ),
+}
+
+# CORS - HTTP configuration
+CORS_ORIGIN_ALLOW_ALL = False
+CORS_ORIGIN_WHITELIST = (
+    'http://localhost:3000',    ### REMOVE THIS LATER IN PRODUCTION
+)
+CSRF_TRUSTED_ORIGINS = [
+    'http://localhost:3000',    ### REMOVE THIS LATER IN PRODUCTION
+]
+CORS_ALLOW_CREDENTIALS = True
+
+# set custom user model
+AUTH_USER_MODEL = 'users.User'
+
+
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Vancouver'
 
 USE_I18N = True
 
