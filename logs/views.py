@@ -65,7 +65,9 @@ class TestPositiveApi(generics.GenericAPIView):
 
     def post(self, request):
         user = request.user
-        serializer = self.get_serializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
-        test_positive = serializer.save()
+        # serializer = self.get_serializer(data=request.data)
+        # serializer.is_valid(raise_exception=True)
+        # test_positive = serializer.save()
+        test_positive = TestPositive(user=user, date_tested=request.data['date_tested'])
+        test_positive.save()
         return Response(None, status=status.HTTP_204_NO_CONTENT)

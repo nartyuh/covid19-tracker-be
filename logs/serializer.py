@@ -34,4 +34,4 @@ class TestPositiveSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = TestPositive
-        fields = ['user', 'date_tested']
+        fields = ['date_tested']
