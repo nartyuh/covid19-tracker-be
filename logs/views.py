@@ -35,14 +35,16 @@ class LogAPI(generics.GenericAPIView):
 
         return Response(serializer.data)
 
-    def post(self, request):
+    def post(self, request, format=None):
         user = request.user
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         log = serializer.save()
         user_log = UserLog(user=user, log=log)
         user_log.save()
-        return Response(None, status=status.HTTP_204_NO_CONTENT)
+        return Response({
+            "status": "ok"
+        })
 
 
 class TestPositiveApi(generics.GenericAPIView):

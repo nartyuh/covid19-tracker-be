@@ -32,10 +32,10 @@ def process_login_register(self, request, action):
         'auth_token',
         token,
         # domain='',
-        path='/',
+        # path='/',
         # samesite='Strict',
         # secure=True,
-        httponly=True,
+        httponly=False,
     )
 
     user = TokenAuthentication().authenticate_credentials(

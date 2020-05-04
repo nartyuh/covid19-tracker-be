@@ -31,6 +31,13 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+
+    # third-party apps
+    'rest_framework',
+    'knox',
+    # 'corsheaders',
+
+    # django apps
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -38,17 +45,19 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    # third-party apps
-    'rest_framework',
-    'knox',
-    'corsheaders',
-
     # created apps
     'users',
     'logs',
 ]
 
 MIDDLEWARE = [
+    # created middleware
+    'middlewares.middlewares.CorsMiddleware',
+
+    # Third party middleware
+    # 'corsheaders.middleware.CorsMiddleware',
+
+    # django middleware
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -56,10 +65,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-
-    # Third party middleware
-    'corsheaders.middleware.CorsMiddleware',
-    'corsheaders.middleware.CorsPostCsrfMiddleware',
 ]
 
 ROOT_URLCONF = 'covid19tracker.urls'
@@ -152,15 +157,20 @@ REST_FRAMEWORK = {
     ),
 }
 
-# CORS - HTTP configuration
-CORS_ORIGIN_ALLOW_ALL = True
-# CORS_ORIGIN_WHITELIST = (
-#     # 'http://localhost:3000',    ### REMOVE THIS LATER IN PRODUCTION
-# )
-CSRF_TRUSTED_ORIGINS = [
-    # 'http://localhost:3000',    ### REMOVE THIS LATER IN PRODUCTION
-    '*'
-]
+# # CORS - HTTP configuration
+# CORS_ORIGIN_ALLOW_ALL = False
+
+# CORS_ORIGIN_WHITELIST = [
+#     "http://localhost:3000",
+# ]
+
+# CORS_ALLOW_METHODS = [
+#     'DELETE',
+#     'GET',
+#     'POST',
+#     'PUT',
+# ]
+
 CORS_ALLOW_CREDENTIALS = True
 
 # set custom user model
@@ -172,7 +182,7 @@ AUTH_USER_MODEL = 'users.User'
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'America/Vancouver'
+TIME_ZONE = 'UTC'
 
 USE_I18N = True
 

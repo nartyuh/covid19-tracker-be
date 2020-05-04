@@ -7,8 +7,8 @@ import uuid
 
 class Log(models.Model):
     id  = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    latitude = models.DecimalField(max_digits=16, decimal_places=12)
-    longitude = models.DecimalField(max_digits=16, decimal_places=12)
+    latitude = models.DecimalField(max_digits=20, decimal_places=17)
+    longitude = models.DecimalField(max_digits=20, decimal_places=17)
     log_start = models.DateTimeField(null=False, blank=False)
     log_end = models.DateTimeField(null=False, blank=False)
 
