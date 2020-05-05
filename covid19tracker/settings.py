@@ -35,7 +35,6 @@ INSTALLED_APPS = [
     # third-party apps
     'rest_framework',
     'knox',
-    # 'corsheaders',
 
     # django apps
     'django.contrib.admin',
@@ -53,9 +52,6 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     # created middleware
     'middlewares.middlewares.CorsMiddleware',
-
-    # Third party middleware
-    # 'corsheaders.middleware.CorsMiddleware',
 
     # django middleware
     'django.middleware.security.SecurityMiddleware',
@@ -155,23 +151,10 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'users.auth.TokenAuthentication',
     ),
+    'DEFAULT_PARSER_CLASSES': [
+        'rest_framework_customs.parsers.PlainTextParser',
+    ]
 }
-
-# # CORS - HTTP configuration
-# CORS_ORIGIN_ALLOW_ALL = False
-
-# CORS_ORIGIN_WHITELIST = [
-#     "http://localhost:3000",
-# ]
-
-# CORS_ALLOW_METHODS = [
-#     'DELETE',
-#     'GET',
-#     'POST',
-#     'PUT',
-# ]
-
-CORS_ALLOW_CREDENTIALS = True
 
 # set custom user model
 AUTH_USER_MODEL = 'users.User'
