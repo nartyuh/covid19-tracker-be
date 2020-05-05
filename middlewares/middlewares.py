@@ -6,8 +6,8 @@ class CorsMiddleware:
     def __call__(self, request):
 
         response = self.get_response(request)
-        response['Access-Control-Allow-Origin'] = 'http://localhost:3000'
-        response['Access-Control-Allow-Headers'] = 'content-type'
+        response['Access-Control-Allow-Origin'] = 'https://covid19geotracker.tranquanghuy.me'
+        response['Access-Control-Allow-Headers'] = 'Content-Type'
         response['Access-Control-Allow-Credentials'] = 'true'
         response['Access-Control-Allow-Methods'] = '*'
 
