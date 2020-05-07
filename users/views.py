@@ -31,11 +31,11 @@ def process_login_register(self, request, action):
     response.set_cookie(
         'auth_token',
         token,
-        # domain='',
-        # path='/',
+        domain='tranquanghuy.me',
+        path='/',
         # samesite='Strict',
-        # secure=True,
-        httponly=False,
+        secure=True,
+        httponly=True,
     )
 
     user = TokenAuthentication().authenticate_credentials(
