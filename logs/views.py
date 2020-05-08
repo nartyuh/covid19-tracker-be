@@ -57,7 +57,7 @@ class LogAPI(generics.GenericAPIView):
             log.latitude = request_data['latitude']
             log.longitude = request_data['longitude']
             log.log_start = request_data['log_start']
-            log.lg_end = request_data['log_end']
+            log.log_end = request_data['log_end']
 
             """
             sanity check
@@ -65,7 +65,7 @@ class LogAPI(generics.GenericAPIView):
             assert log.latitude == request_data['latitude']
             assert log.longitude == request_data['longitude']
             assert log.log_start == request_data['log_start']
-            assert log.lg_end == request_data['log_end']
+            assert log.log_end == request_data['log_end']
 
             # save changes
             log.save()
