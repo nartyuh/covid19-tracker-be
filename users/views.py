@@ -83,5 +83,7 @@ class LogoutAPI(generics.GenericAPIView):
         user_logged_out.send(sender=request.user.__class__,
                              request=request, user=request.user)
         response = Response(None, status=status.HTTP_204_NO_CONTENT)
-        response.delete_cookie('auth_token', path='/', domain=None)
+        response.delete_cookie('auth_token', path='/', domain="tranquanghuy.me")
+        # response.delete_cookie('auth_token', path='/', domain=None)
+
         return response

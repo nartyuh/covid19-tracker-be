@@ -1,7 +1,7 @@
 from django.contrib import admin
-from .models import Log, UserLog, TestPositive
+from .models import Log, UserLog, TestRecord
 
 # Register your models here.
 admin.site.register(Log)
 admin.site.register(UserLog)
-admin.site.register(TestPositive)
+admin.site.register(TestRecord)
