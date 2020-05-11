@@ -1,1 +1,1 @@
-# covid-19-tracker-bed
+# COVID-19 GeoTracker - Backend
