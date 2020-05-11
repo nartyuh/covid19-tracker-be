@@ -1,7 +1,7 @@
 # COVID-19 GeoTracker - Backend
 
 #### Register
-```curl
+```cURL
 curl --location --request POST 'https://apic19gt.tranquanghuy.me/auth/register' \
 --header 'Content-Type: text/plain;charset=UTF-8' \
 --data-raw '{
@@ -21,6 +21,7 @@ curl --location --request POST 'https://apic19gt.tranquanghuy.me/auth/login' \
 }'
 ```
 
-#### 
-
-
+#### Check user
+```cURL
+curl --location --request POST 'https://apic19gt.tranquanghuy.me/auth/user' \
+```
