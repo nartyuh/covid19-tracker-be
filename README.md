@@ -21,7 +21,13 @@ curl --location --request POST 'https://apic19gt.tranquanghuy.me/auth/login' \
 }'
 ```
 
-#### Check user
+#### Check user token
 ```cURL
 curl --location --request POST 'https://apic19gt.tranquanghuy.me/auth/user' \
 ```
+
+#### Get user logs
+```cURL
+curl --location --request GET 'https://apic19gt.tranquanghuy.me/logs/log' \
+```
+
